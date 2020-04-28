@@ -1,4 +1,4 @@
-// import axios from 'axios'
+import axios from 'axios'
 
 const state = {
     todos: []
@@ -9,15 +9,14 @@ const getters = {
 }
 
 const actions = {
-    async fetchTodos({commit}) {
-        await fetch('http://jsonplaceholder.typicode.com/todos')
+     fetchTodos({commit}) {
+         fetch('http://jsonplaceholder.typicode.com/todos')
             .then(res => res.json())
             .then(res => commit('setTodos', res))
-        // const response = await axios.get('http://jsonplaceholder.typicode.com/todos')
-        // commit('setTodos', response.data)
+
     },
-    async addTodo({commit}, title) {
-        await fetch('http://jsonplaceholder.typicode.com/todos',{
+     addTodo({commit}, title) {
+         fetch('http://jsonplaceholder.typicode.com/todos',{
             method : "POST",
             headers: {
                 'content-type': 'application/json'
@@ -28,13 +27,30 @@ const actions = {
             })
         }).then(res => res.json())
             .then(res => commit('newTodo', res))
+    },
+    async deleteTodo({commit}, id) {
+
+        // fetch(`http://jsonplaceholder.typicode.com/todos/${id}`,{
+        //     method : "DELETE"
+        // }).then(() => commit('removeTodo', id))
+        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        commit('removeTodo',id)
     }
+
+
+
+
 
 }
 
 const mutations = {
     setTodos: (state, todos) => (state.todos = todos),
-    newTodo: (state, todo) => state.todos.unshift(todo)
+    newTodo: (state, todo) => state.todos.unshift(todo),
+    removeTodo: (state,id) => {
+        console.log("Here",id)
+        state.todos = state.todos.filter(todo => todo.id !== id)
+    }
+
 }
 
 export default {
