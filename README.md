@@ -2,12 +2,12 @@
 
 ### To do list using Vue and VueX
 
-## Project setup
+## To setup the project
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### To compile and start development server
 ```
 yarn serve
 ```
