@@ -1,5 +1,7 @@
 # vuex-to-do-list
 
+### To do list using Vue and VueX
+
 ## Project setup
 ```
 yarn install
@@ -9,16 +11,3 @@ yarn install
 ```
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
