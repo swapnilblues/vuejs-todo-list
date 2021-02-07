@@ -2,7 +2,7 @@
 
 ### To do list using Vue and VueX
 
-## To setup the project
+### To setup the project
 ```
 yarn install
 ```
